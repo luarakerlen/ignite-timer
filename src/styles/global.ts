@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -22,4 +22,4 @@ border-style, input-security, textarea, button {
   font-weight: 400;
   font-size: 1rem;
 }
-`;
+`
