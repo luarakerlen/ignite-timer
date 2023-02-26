@@ -18,7 +18,6 @@ export function Countdown() {
 	const currentSecondsAmount = currentSeconds % 60;
 	const minutes = String(currentMinutesAmount).padStart(2, '0');
 	const seconds = String(currentSecondsAmount).padStart(2, '0');
-	
 
 	useEffect(() => {
 		let interval: number;
@@ -27,7 +26,7 @@ export function Countdown() {
 			interval = setInterval(() => {
 				const secondsDifference = differenceInSeconds(
 					new Date(),
-					activeCycle.startDate
+					new Date(activeCycle.startDate)
 				);
 
 				if (secondsDifference >= totalSeconds) {
@@ -44,15 +43,13 @@ export function Countdown() {
 			clearInterval(interval);
 			setSecondsPassed(0);
 		};
-	}, [
-		activeCycle,
-		totalSeconds,
-		activeCycleId,
-	]);
+	}, [activeCycle, totalSeconds, activeCycleId]);
 
 	useEffect(() => {
 		if (activeCycle) {
 			document.title = `${minutes}:${seconds} - ${activeCycle.task} | Ignite Timer`;
+		} else {
+			document.title = 'Ignite Timer';
 		}
 	}, [minutes, seconds]);
 
