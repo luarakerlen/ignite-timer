@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FormContainer = styled.div`
 	width: 100%;
@@ -10,6 +10,16 @@ export const FormContainer = styled.div`
 	font-size: 1.125rem;
 	font-weight: bold;
 	flex-wrap: wrap;
+
+	.break {
+		display: none;
+
+		@media (max-width: 768px) {
+			display: block;
+			flex-basis: 100%;
+			height: 0;
+		}
+	}
 `;
 
 const BaseInput = styled.input`

@@ -19,6 +19,7 @@ export function NewCycleForm() {
 			/>
 			<datalist id='task-suggestions' />
 
+			<div className="break"></div>
 			<label htmlFor='minutesAmount'>durante</label>
 			<MinutesAmountInput
 				type='number'
