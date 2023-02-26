@@ -34,29 +34,34 @@ const BaseInput = styled.input`
 	border-bottom: 2px solid ${(props) => props.theme['gray-500']};
 	font-weight: bold;
 	font-size: 1.125rem;
-  padding: 0 0.5rem;
-  color: ${(props) => props.theme['gray-100']};
+	padding: 0 0.5rem;
+	color: ${(props) => props.theme['gray-100']};
 
-  &:focus {
-    box-shadow: none;
-    border-color: ${(props) => props.theme['green-500']};
-  }
+	&:focus {
+		box-shadow: none;
+		border-color: ${(props) => props.theme['green-500']};
+	}
 
-  &::placeholder {
-    color: ${(props) => props.theme['gray-500']};
-  }
+	&::placeholder {
+		color: ${(props) => props.theme['gray-500']};
+	}
+
+	&:disabled {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
 `;
 
 export const TaskInput = styled(BaseInput)`
-  flex: 1;
+	flex: 1;
 
-  &::-webkit-calendar-picker-indicator {
-    display: none !important;
-  }
+	&::-webkit-calendar-picker-indicator {
+		display: none !important;
+	}
 `;
 
 export const MinutesAmountInput = styled(BaseInput)`
-  width: 4rem;
+	width: 4rem;
 `;
 
 export const CountdownContainer = styled.div`
@@ -84,7 +89,7 @@ export const Separator = styled.div`
 	justify-content: center;
 `;
 
-export const StartCountdownButton = styled.button`
+const BaseCountdownButton = styled.button`
 	width: 100%;
 	border: 0;
 	border-radius: 8px;
@@ -97,7 +102,6 @@ export const StartCountdownButton = styled.button`
 	gap: 0.5rem;
 	font-weight: bold;
 
-	background-color: ${(props) => props.theme['green-500']};
 	color: ${(props) => props.theme['gray-100']};
 	transition: background-color 0.2s;
 
@@ -105,8 +109,20 @@ export const StartCountdownButton = styled.button`
 		opacity: 0.7;
 		cursor: not-allowed;
 	}
+`;
+
+export const StartCountdownButton = styled(BaseCountdownButton)`
+	background-color: ${(props) => props.theme['green-500']};
 
 	&:not(:disabled):hover {
 		background-color: ${(props) => props.theme['green-700']};
+	}
+`;
+
+export const StopCountdownButton = styled(BaseCountdownButton)`
+	background-color: ${(props) => props.theme['red-500']};
+
+	&:not(:disabled):hover {
+		background-color: ${(props) => props.theme['red-700']};
 	}
 `;
