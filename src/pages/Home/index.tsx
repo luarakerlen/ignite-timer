@@ -71,7 +71,7 @@ export function Home() {
 
 		return () => {
 			clearInterval(interval);
-			setAmountSecondsPassed(0)
+			setAmountSecondsPassed(0);
 		};
 	}, [activeCycle]);
 
@@ -90,6 +90,12 @@ export function Home() {
 
 		reset();
 	}
+
+	useEffect(() => {
+		if(activeCycle){
+			document.title = `${minutes}:${seconds}`;
+		}
+	}, [minutes, seconds]);
 
 	return (
 		<HomeContainer>
