@@ -19,6 +19,7 @@ export function Countdown() {
 	const currentSecondsAmount = currentSeconds % 60;
 	const minutes = String(currentMinutesAmount).padStart(2, '0');
 	const seconds = String(currentSecondsAmount).padStart(2, '0');
+	
 
 	useEffect(() => {
 		let interval: number;
@@ -49,8 +50,6 @@ export function Countdown() {
 		activeCycle,
 		totalSeconds,
 		activeCycleId,
-		markCurrentCycleAsFinished,
-		setActiveCycleIdAsNull,
 	]);
 
 	useEffect(() => {
