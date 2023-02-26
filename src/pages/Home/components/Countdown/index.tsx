@@ -7,11 +7,11 @@ export function Countdown() {
 	const {
 		activeCycle,
 		activeCycleId,
+		amountSecondsPassed,
+		setSecondsPassed,
 		markCurrentCycleAsFinished,
 		setActiveCycleIdAsNull,
 	} = useContext(CyclesContext);
-
-	const [amountSecondsPassed, setAmountSecondsPassed] = useState(0);
 
 	const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0;
 	const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0;
@@ -32,18 +32,18 @@ export function Countdown() {
 
 				if (secondsDifference >= totalSeconds) {
 					markCurrentCycleAsFinished();
-					setAmountSecondsPassed(totalSeconds);
+					setSecondsPassed(totalSeconds);
 					clearInterval(interval);
 					setActiveCycleIdAsNull();
 				} else {
-					setAmountSecondsPassed(secondsDifference);
+					setSecondsPassed(secondsDifference);
 				}
 			}, 1000);
 		}
 
 		return () => {
 			clearInterval(interval);
-			setAmountSecondsPassed(0);
+			setSecondsPassed(0);
 		};
 	}, [
 		activeCycle,
